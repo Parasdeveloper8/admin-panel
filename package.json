@@ -1,0 +1,27 @@
+{
+  "name": "myadmin-panel",
+  "version": "1.0.0",
+  "description": "Admin panel fullstack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parasdeveloper8/admin-panel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parasdeveloper8/admin-panel/issues"
+  },
+  "homepage": "https://github.com/Parasdeveloper8/admin-panel#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.3"
+  }
+}
