@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
-        #button {
+        button {
             width: 80px;
             height: 30px;
             border: 1px solid black;
         }
-        #button:disabled {
+        button:disabled {
             border: 1px solid grey;
         }
     </style>
@@ -31,32 +31,21 @@
             <label for="password">Create your Password</label>
             <input type="password" id="password" name="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
-            title="Must contain at least 8 characters, including uppercase, lowercase, number, and special character" required/>
+            title="Must contain at least 8 characters, including uppercase, lowercase, number,
+             and special character" required autocomplete="new-password"/>
 
             <label for="confirmpass">Confirm Password</label>
             <input type="password" id="confirmpass" name="confirm" required
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
-            title="This should be the same as the above password you entered"/>
+            title="This should be the same as the above password you entered" />
 
-            <input type="submit" value="Submit" id="button" disabled onmouseover="checkPass()"/>
+            <button type="submit" id="button" disabled >Submit</button>
         </form>
     </main>
     <footer>
         <p>Your details are safe with us and will not be shared by us</p>
     </footer>
-    <script>
-        const checkPass = () => {
-            let button = document.getElementById("button");
-            let password = document.getElementById("password");
-            let confirmpassword = document.getElementById("confirmpass");
-
-            if (password.value === confirmpassword.value) {
-                button.disabled = false;
-            } else {
-                button.disabled = true;
-                button.title = "Enter correct password to go ahead";
-            }
-        }
+    <script src="../js/registerbutton.js">
     </script>
 </body>
 </html>
