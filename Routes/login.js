@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
 
         // Store username and token in the session
         req.session.username = user.Name;
+        req.session.emails = user.Email;
         req.session.token = token;
 
         return res.redirect('/home'); // Consider using JSON response if you plan to handle it on the frontend

@@ -24,6 +24,8 @@ const login = require("./Routes/login");
 
 const path = require("path");
 
+const userdata = require("./Routes/userdata");
+
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
@@ -60,7 +62,7 @@ app.get("/loginpage", (req, res) => {
 app.get("/registerpage", (req, res) => {
     res.render("register");
 });
-
+app.use("/userdata",userdata);
 app.use("/regis",register );
 
 app.get("/afterregistration", (req, res) => {

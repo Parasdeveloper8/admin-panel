@@ -46,15 +46,15 @@
             <section class="content" id="form" style="display: none;">
                 <h1>Forms</h1>
                 <p>This is the forms section. You can manage your forms here.</p>
-                <form method="post" id="data-form">
+                <form method="post" id="data-form" action="/userdata">
                     <label for="name">Enter Name</label>
-                    <input type="text" name="name" id="name"/>
+                    <input type="text" name="name" id="name" required/>
                     <label for="age">Enter Age</label>
-                    <input type="number" name="age" id="age"/>
+                    <input type="number" name="age" id="age" required/>
                     <label for="profession">Enter Profession</label>
-                    <input type="text" name="profession" id="profession"/>
+                    <input type="text" name="profession" id="profession" required/>
                     <label for="description">Enter Description</label>
-                    <input type="text" name="description" id="description"/>
+                    <input type="text" name="description" id="description" required/>
                     <input type="submit" value="add data"/>
                 </form>
             </section>
