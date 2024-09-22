@@ -10,7 +10,7 @@ const nodemailer = require("nodemailer");
 
 const session = require('express-session');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 const dotenv = require('dotenv').config();
 

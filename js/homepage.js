@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tbody.innerHTML = "";
 
     // Fetch data from the API
-    fetch("http://localhost:8000/getstoreddata")
+    fetch("http://localhost:5000/getstoreddata")
         .then(response => response.json())
         .then(data => {
             // Check if data is available
@@ -44,10 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // Iterate over the data and populate the table
             data.forEach(user => {
                 const row = tbody.insertRow();
-                row.insertCell(0).innerText = JSON.stringify(user.Name).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(1).innerText = JSON.stringify(user.Age).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(2).innerText = JSON.stringify(user.Profession).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(3).innerText = JSON.stringify(user.Description).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(0)
+                .innerText = JSON.stringify(user.Name).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(1)
+                .innerText = JSON.stringify(user.Age).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(2)
+                .innerText = JSON.stringify(user.Profession).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(3)
+                .innerText = JSON.stringify(user.Description).replace(/['"]/g, ''); // Adjust based on your data structure
             });
         })
         .catch(error => {

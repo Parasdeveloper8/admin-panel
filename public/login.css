@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    overflow-x:hidden;
+    min-height: 100vh;
+    background:linear-gradient(to bottom , rgba(247, 175, 175, 0.671),white);
+}
+#forget > button {
+    width: 50vw;
+    border: 1px solid black;
+    width:15vw;
+    height:10vh;
+    border-radius: 10px;
+    background-color:#4a90e2 ;
+    border: none;
+    color:white;
+    font-size:18px;
+    margin-top: 20px;
+}
+#data-form > input[type="submit"]{
+    width: 50vw;
+    border: 1px solid black;
+    width:15vw;
+    height:10vh;
+    border-radius: 10px;
+    background-color:#4a90e2 ;
+    border: none;
+    color:white;
+    font-size:18px;
+    margin-top: 20px;
+}
+#data-form > label{
+    margin-top:25px;
+    font-size: 20px;
+    color:black;
+}
+#data-form > input{
+    font-size: 20px;
+    width:50vw;
+    height:10vh;
+    border:none;
+    border-radius: 10px;
+    text-align: center;
+}
+#forget{
+    width:100vw;
+    display:flex;
+    justify-content: center;
+}
+#data-form{
+    width:100vw;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+header > p{
+    text-align:center;
+    font-size:25px;
+    color:black;
+}
+footer > p{
+    text-align: center;
+}
+@media only screen and (max-width:768px){
+    body{
+        margin:0;
+        overflow-x:hidden;
+        width:100vw;
+    }
+    button{
+        width:50vw;
+    }
+}

@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/login.css" type="text/css">
 </head>
 <body>
     <header>
         <p>Login</p>
     </header>
     <main>
-        <form action="/login" method="post">
+        <form action="/login" method="post" id="data-form">
          <label for="email">Enter your Email</label>
          <input type="email" id="email" name="email"/>
          <label for="password">Enter your password</label>
          <input type="password" id="password" name="password"/>
          <input type="submit" value="submit"/>
         </form>
-        <form action="/forgot" method="post">
-            <input type="submit" value="Forgot password"/>
+        <form action="/forgot" method="post" id="forget">
+            <button type="submit">Forgot password</button>
         </form>
     </main>
     <footer>
-        <p>Your details are safe with us and will not be shared by us</p>
+        <p><strong>Your details are safe with us and will not be shared by us</strong></p>
     </footer>
 </body>
 </html>
