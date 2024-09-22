@@ -3,14 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <p><%= username %></p>
-    </header>
-    <main>
-        
-    </main>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <h2>Admin</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="dashboard-link">Dashboard</a></li>
+                    <li><a href="#" id="form-link">Forms</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="toggle-btn" id="toggle-btn">&#9776;</div>
+                <div class="admin-info">
+                    <span class="admin-name"> <%= username %></span>
+                </div>
+                <form method="post" action="/logout">
+                    <input type="submit" id="logout" value="Logout"/>
+                </form>
+            </header>
+
+            <!-- Main Sections -->
+            <section class="content" id="dashboard">
+                <h1>Welcome, Admin</h1>
+                <p>This is your dashboard. You can manage everything from here.</p>
+                <div id="data-div">
+                    
+                </div>
+            </section>
+
+            <section class="content" id="form" style="display: none;">
+                <h1>Forms</h1>
+                <p>This is the forms section. You can manage your forms here.</p>
+                <form method="post" id="data-form">
+                    <label for="name">Enter Name</label>
+                    <input type="text" name="name" id="name"/>
+                    <label for="age">Enter Age</label>
+                    <input type="number" name="age" id="age"/>
+                    <label for="profession">Enter Profession</label>
+                    <input type="text" name="profession" id="profession"/>
+                    <label for="description">Enter Description</label>
+                    <input type="text" name="description" id="description"/>
+                    <input type="submit" value="add data"/>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="../js/homepage.js"></script>
 </body>
 </html>

@@ -1,0 +1,172 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    position: fixed; /* Fix sidebar on the left */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+.sidebar.hide {
+    transform: translateX(-250px);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar nav ul li a:hover {
+    color: #ffb703;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-left: 250px; /* Offset for the sidebar */
+    transition: margin-left 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Header */
+.header {
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.header .toggle-btn {
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden on larger screens */
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+}
+
+#logout {
+    border: none;
+    font-size: 18px;
+    color: white;
+    background-color: #4a90e2;
+}
+
+.admin-name {
+    margin-right: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+/* Main section */
+.content {
+    margin-top: 20px;
+}
+#data-form{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+#data-form > input[type="submit"]{
+    width:15vw;
+    height:10vh;
+    border-radius: 10px;
+    background-color:#4a90e2 ;
+    border: none;
+    color:white;
+    font-size:18px;
+    margin-top: 20px;
+}
+#data-form > label{
+    margin-top:25px;
+    font-size: 20px;
+}
+#data-form > input{
+    font-size: 20px;
+    width:30vw;
+    height:10vh;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+    border-radius: 10px;
+}
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-250px);
+        position: absolute; /* Change to absolute positioning on mobile */
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0; /* No margin on mobile */
+    }
+
+    .header .toggle-btn {
+        display: block; /* Show toggle button on mobile */
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+}
+
