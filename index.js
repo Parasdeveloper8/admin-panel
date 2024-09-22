@@ -28,6 +28,14 @@ const userdata = require("./Routes/userdata");
 
 const fetchdata = require("./Routes/getuserdata");
 
+const isAuthenticated = (req,res,next)=>{
+     if(req.session && req.session.emails){
+        return next();
+     }
+     else{
+        res.send("<b>Unauthorized Access</b><strong> Log in first status-Code:401</strong>");
+     }
+}
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
@@ -73,7 +81,7 @@ app.use("/getstoreddata",fetchdata);
 app.get("/afterregistration", (req, res) => {
     res.render("login");
 });
-app.use("/home",home);
+app.use("/home",isAuthenticated,home);
 
 app.use("/login",login);
 
