@@ -79,6 +79,9 @@ app.use("/login",login);
 
 app.use('/logout',logout);
 
+app.get("/success",(req,res)=>{
+    res.render("success");
+});
 // Create a transporter
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com", // Replace with your email provider's SMTP server
@@ -91,17 +94,20 @@ const transporter = nodemailer.createTransport({
 });
 app.post("/forgot",(req,res)=>{
     const mailOptions = {
-        from: '"paras" <your-email@example.com>', // Sender address
-        to: "shaluparas95@gmail.com", // List of recipients
-        subject: 'Hello from Nodemailer', // Subject line
-        text: 'Hello world?', // Plain text body
-        html: '<b>Hello world?</b>' // HTML body
+        from: '"parasdeveloper8" <your-email@example.com>', 
+        to: "shaluparas95@gmail.com", 
+        subject: 'Reset Link for Password', 
+        text: 'Click on this link to reset your password',
+        html: '<a href="http://localhost:8000/">click here<a>' 
     };
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log('Error occurred: ' + error.message);
         }
+        else{
         console.log('Message sent: %s', info.messageId);
+        res.redirect("/success");
+        }
     });
 });
 
