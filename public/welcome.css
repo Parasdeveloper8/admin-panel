@@ -13,11 +13,15 @@ header > p{
 body {
     min-height: 100vh;
     width:100vw;
+    overflow-x:hidden;
 }
 main > p , a{
     font-size: 25px;
     margin-top: 50px;
     text-decoration: none;
+}
+main > .intro{
+    width:80vw;
 }
 main > a{
     border: 1px solid  #4a90e2;
@@ -30,6 +34,11 @@ main{
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    width:80vw;
 }
 ul > li{
     padding-top: 5px;
@@ -48,4 +57,11 @@ footer{
         font-size: 20px;
         text-align: center;
     }
+}
+@media only screen and (max-width:768px){
+    body{
+        width:100vw;
+        height:100vh;
+    }
+    
 }
