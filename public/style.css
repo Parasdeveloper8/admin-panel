@@ -145,7 +145,18 @@ p {
     font-size: 18px;
     color: #666;
 }
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
 /* Responsive design */
 @media (max-width: 768px) {
     .sidebar {

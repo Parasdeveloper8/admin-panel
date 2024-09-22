@@ -21,11 +21,42 @@ const sidebar = document.getElementById('sidebar');
 toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('active'); // Toggle the sidebar
 });
-document.addEventListener("DOMContentLoaded",()=>{
-    const div =document.getElementById("data-div");
-    if(div.innerText == ""){
-        div.innerText = "No data available";
-        div.style.fontSize = "20px";
-        div.style.color = "black";
-    }
+document.addEventListener("DOMContentLoaded", () => {
+    const tbody = document.querySelector("#data-table tbody"); // Select the table body
+
+    // Clear the table if it was previously populated
+    tbody.innerHTML = "";
+
+    // Fetch data from the API
+    fetch("http://localhost:8000/getstoreddata")
+        .then(response => response.json())
+        .then(data => {
+            // Check if data is available
+            if (data.length === 0) {
+                const row = tbody.insertRow();
+                const cell = row.insertCell(0);
+                cell.colSpan = 4; // Span across all columns
+                cell.innerText = "No data available";
+                cell.style.textAlign = "center";
+                return;
+            }
+
+            // Iterate over the data and populate the table
+            data.forEach(user => {
+                const row = tbody.insertRow();
+                row.insertCell(0).innerText = JSON.stringify(user.Name).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(1).innerText = JSON.stringify(user.Age).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(2).innerText = JSON.stringify(user.Profession).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(3).innerText = JSON.stringify(user.Description).replace(/['"]/g, ''); // Adjust based on your data structure
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            const row = tbody.insertRow();
+            const cell = row.insertCell(0);
+            cell.colSpan = 4; // Span across all columns
+            cell.innerText = "Error loading data.";
+            cell.style.textAlign = "center";
+        });
 });
+
