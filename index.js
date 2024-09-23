@@ -66,7 +66,6 @@ app.use(helmet());
 
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
-
 app.get("/", (req, res) => {
     res.render("welcomepage");
 });

@@ -1,4 +1,3 @@
-// Show dashboard section on click
 document.getElementById('dashboard-link').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent default anchor behavior
     document.getElementById('dashboard').style.display = 'block'; // Show dashboard
@@ -63,4 +62,3 @@ document.addEventListener("DOMContentLoaded", () => {
             cell.style.textAlign = "center";
         });
 });
-
