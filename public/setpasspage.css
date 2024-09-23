@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    width:100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+label{
+    font-size:25px;
+}
+input[type="email"],input[type="password"]{
+    width:50vw;
+    font-size: 25px;
+}
+input[type="submit"]{
+    margin-top: 30px;
+    border:none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding:5px;
+}
+@media only screen and (max-width:768px){
+    input[type="submit"]{
+        width:20vw;
+    }
+    input[type="email"],input[type="password"]{
+        width:60vw;
+    }
+}
