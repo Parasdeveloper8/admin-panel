@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const row = tbody.insertRow();
                 const cell = row.insertCell(0);
                 cell.colSpan = 4; // Span across all columns
-                cell.innerText = "No data available";
                 cell.style.textAlign = "center";
                 return;
             }
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const row = tbody.insertRow();
             const cell = row.insertCell(0);
             cell.colSpan = 4; // Span across all columns
-            cell.innerText = "Error loading data.";
+            cell.innerText = "NO! data Available";
             cell.style.textAlign = "center";
         });
 });
