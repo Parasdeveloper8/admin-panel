@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 const logout = require('./Routes/logout');
 
-const nodemailer = require("nodemailer");
+const transporter = require("./configuration/transporter");
 
 const session = require('express-session');
 
@@ -33,7 +33,7 @@ const isAuthenticated = (req,res,next)=>{
         return next();
      }
      else{
-        res.send("<b>Unauthorized Access</b><strong> Log in first status-Code:401</strong>");
+        res.send("<strong> Unauthorized Access :-Log in first [status-Code:401]</strong>");
      }
 }
 app.use(session({
@@ -90,16 +90,7 @@ app.use('/logout',logout);
 app.get("/success",(req,res)=>{
     res.render("success");
 });
-// Create a transporter
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // Replace with your email provider's SMTP server
-    port: 587, // Use 465 for SSL
-    secure: false, // true for 465, false for other ports
-    auth: {
-        user: process.env.EMAIL, // Your email
-        pass: process.env.EMAIL_PASSWORD // Your email password or app password
-    }
-});
+
 app.post("/forgot",(req,res)=>{
     const mailOptions = {
         from: '"parasdeveloper8" <your-email@example.com>', 
