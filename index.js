@@ -6,6 +6,8 @@ const changepass = require("./Routes/changepass");
 
 const sendlink = require("./Routes/sendlink");
 
+const deletedata = require("./Routes/deletedata");
+
 const helmet = require("helmet");
 
 const logout = require('./Routes/logout');
@@ -105,6 +107,8 @@ app.use("/changepass",changepass);
 app.get("/newpasswordpage",(req,res)=>{
     res.render("setpasswordpage");
 });
+
+app.use("/deletedata",deletedata);
 
 app.listen(port, () => {
     console.log(`Server started at ${port}`);

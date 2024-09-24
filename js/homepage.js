@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Clear the table if it was previously populated
     tbody.innerHTML = "";
-    const button = document.createElement("button");
-    button.innerText = "Delete";
     // Fetch data from the API
     fetch("http://localhost:5000/getstoreddata")
         .then(response => response.json())
@@ -41,12 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Iterate over the data and populate the table
-            data.forEach(user => {
+            data.forEach((user,index) => {
                 const row = tbody.insertRow();
-                row.insertCell(0).innerText = user.Name; // Adjust based on your data structure
-                row.insertCell(1).innerText = user.Age;
-                row.insertCell(2).innerText = user.Profession;
-                row.insertCell(3).innerText = user.Description;
+                row.insertCell(0).innerText = index + 1;
+                row.insertCell(1).innerText = user.Name; // Adjust based on your data structure
+                row.insertCell(2).innerText = user.Age;
+                row.insertCell(3).innerText = user.Profession;
+                row.insertCell(4).innerText = user.Description;
             
                 // Create a new delete button for each row
                 const deleteButton = document.createElement("button");
@@ -57,10 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 deleteButton.style.padding="5px";
                 deleteButton.style.borderRadius = "5px";
                 deleteButton.addEventListener('click', () => {
-                    // Add your delete functionality here
+                    fetch(`http://localhost:5000/deletedata/${user.id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Remove the row from the table if deletion is successful
+                            tbody.deleteRow(row.rowIndex - 1);
+                        } else {
+                            console.error("Failed to delete data from database");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
                 });
             
-                row.insertCell(4).appendChild(deleteButton);
+                row.insertCell(5).appendChild(deleteButton);
             });
             
         })
@@ -68,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Error fetching data:", error);
             const row = tbody.insertRow();
             const cell = row.insertCell(0);
-            cell.colSpan = 5; // Span across all columns
+            cell.colSpan = 6; // Span across all columns
             cell.innerText = "NO! data Available";
             cell.style.textAlign = "center";
         });
