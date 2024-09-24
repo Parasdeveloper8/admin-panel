@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Clear the table if it was previously populated
     tbody.innerHTML = "";
-
+    const button = document.createElement("button");
+    button.innerText = "Delete";
     // Fetch data from the API
     fetch("http://localhost:5000/getstoreddata")
         .then(response => response.json())
@@ -42,21 +43,32 @@ document.addEventListener("DOMContentLoaded", () => {
             // Iterate over the data and populate the table
             data.forEach(user => {
                 const row = tbody.insertRow();
-                row.insertCell(0)
-                .innerText = JSON.stringify(user.Name).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(1)
-                .innerText = JSON.stringify(user.Age).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(2)
-                .innerText = JSON.stringify(user.Profession).replace(/['"]/g, ''); // Adjust based on your data structure
-                row.insertCell(3)
-                .innerText = JSON.stringify(user.Description).replace(/['"]/g, ''); // Adjust based on your data structure
+                row.insertCell(0).innerText = user.Name; // Adjust based on your data structure
+                row.insertCell(1).innerText = user.Age;
+                row.insertCell(2).innerText = user.Profession;
+                row.insertCell(3).innerText = user.Description;
+            
+                // Create a new delete button for each row
+                const deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.style.border = "none";
+                deleteButton.style.color = "white";
+                deleteButton.style.backgroundColor = "#4a90e2";
+                deleteButton.style.padding="5px";
+                deleteButton.style.borderRadius = "5px";
+                deleteButton.addEventListener('click', () => {
+                    // Add your delete functionality here
+                });
+            
+                row.insertCell(4).appendChild(deleteButton);
             });
+            
         })
         .catch(error => {
             console.error("Error fetching data:", error);
             const row = tbody.insertRow();
             const cell = row.insertCell(0);
-            cell.colSpan = 4; // Span across all columns
+            cell.colSpan = 5; // Span across all columns
             cell.innerText = "NO! data Available";
             cell.style.textAlign = "center";
         });
